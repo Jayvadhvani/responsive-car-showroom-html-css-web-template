@@ -1,0 +1,1514 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Car Showroom HTML/CSS Web Template</title>
+  <meta name="description" content="Download a free, premium car showroom website template built with HTML, CSS and JavaScript. Features include hero slideshow, color swatch configurator, car gallery, specs comparison, test drive booking, and animated stats. Perfect for auto dealers, car dealerships, and automotive brands.">
+  <meta name="keywords" content="car showroom template, auto dealer website template, car dealership HTML template, luxury car website template, automotive website template, car website design, free car template, car gallery HTML, vehicle showroom website, auto website template, free HTML template, car UI design, dealership website template, CodesCompiler template, car configurator HTML">
+  <meta name="author" content="CodesCompiler.com">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#e5192b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Car Showroom Website Template | Luxury Auto Dealer HTML — CodesCompiler">
+  <meta property="og:description" content="A premium, fully responsive car showroom template with hero slideshow, color configurator, gallery, specs comparison, and test drive booking. Free to use.">
+  <meta property="og:url" content="https://codescompiler.com/blog/car-showroom-template/">
+  <meta property="og:site_name" content="CodesCompiler">
+  <meta property="og:image" content="https://codescompiler.com/images/posts/car-showroom-template.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Car Showroom Website Template | Luxury Auto Dealer HTML — CodesCompiler">
+  <meta name="twitter:description" content="Premium car showroom template with hero slideshow, color configurator, gallery, specs comparison, and test drive booking.">
+  <meta name="twitter:image" content="https://codescompiler.com/images/posts/car-showroom-template.png">
+  <meta name="twitter:site" content="@CodesCompiler">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free Car Showroom Website Template",
+    "description": "A premium responsive HTML CSS car showroom template featuring hero image slideshow, interactive color swatch configurator, vehicle gallery, specs comparison, and test drive booking form.",
+    "url": "https://codescompiler.com/blog/car-showroom-template/",
+    "author": { "@type": "Organization", "name": "CodesCompiler", "url": "https://codescompiler.com" },
+    "publisher": {
+      "@type": "Organization", "name": "CodesCompiler", "url": "https://codescompiler.com",
+      "logo": { "@type": "ImageObject", "url": "https://codescompiler.com/logo.png" }
+    },
+    "keywords": "car showroom template, auto dealer website, car dealership HTML, luxury car website, automotive HTML template",
+    "inLanguage": "en-US",
+    "isPartOf": { "@type": "WebSite", "name": "CodesCompiler", "url": "https://codescompiler.com" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --red:        #e5192b;
+      --red-glow:   rgba(229,25,43,0.35);
+      --red-dim:    rgba(229,25,43,0.12);
+      --ink:        #06080c;
+      --ink2:       #0b0e14;
+      --ink3:       #10141d;
+      --border:     rgba(255,255,255,0.06);
+      --border-red: rgba(229,25,43,0.25);
+      --slate:      #8494aa;
+      --light:      #dce8f5;
+      --white:      #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--ink);
+      color: var(--light);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* carbon fiber texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,0.012) 0px,
+          rgba(255,255,255,0.012) 1px,
+          transparent 1px,
+          transparent 8px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(255,255,255,0.012) 0px,
+          rgba(255,255,255,0.012) 1px,
+          transparent 1px,
+          transparent 8px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: 64px;
+      background: rgba(6,8,12,0.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .logo span { color: var(--red); }
+    nav { display: flex; gap: 28px; align-items: center; }
+    nav a {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+    }
+    nav a:hover, nav a.active { color: var(--white); }
+    nav a.active::after { transform: scaleX(1); }
+    .btn-book-test {
+      background: var(--red);
+      color: var(--white);
+      padding: 9px 20px;
+      border: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.25s;
+      box-shadow: 0 4px 16px var(--red-glow);
+    }
+    .btn-book-test:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--red-glow);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    /* hero slides */
+    .hero-track { display: flex; transition: transform 0.65s cubic-bezier(0.25,1,0.5,1); }
+    .hero-slide {
+      min-width: 100%;
+      position: relative;
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center right;
+      z-index: 0;
+      animation: kenBurns 18s ease-out infinite alternate;
+    }
+    /* dark left vignette */
+    .hero-slide-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        rgba(6,8,12,0.97) 0%,
+        rgba(6,8,12,0.85) 40%,
+        rgba(6,8,12,0.35) 65%,
+        rgba(6,8,12,0.6) 100%
+      );
+    }
+    @keyframes kenBurns {
+      from { transform: scale(1.02); }
+      to   { transform: scale(1.09); }
+    }
+
+    /* hero left content */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 100px 48px 180px;
+      max-width: 660px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      border: 1px solid var(--border-red);
+      background: var(--red-dim);
+      padding: 5px 14px;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(56px, 9vw, 110px);
+      font-weight: 900;
+      font-style: italic;
+      color: var(--white);
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .hero-title .red-word { color: var(--red); display: block; }
+    .hero-desc {
+      font-size: 14.5px;
+      color: var(--slate);
+      line-height: 1.75;
+      margin: 22px 0 36px;
+      max-width: 440px;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn-red-solid {
+      background: var(--red);
+      color: var(--white);
+      padding: 14px 30px;
+      border: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.28s;
+      box-shadow: 0 8px 28px var(--red-glow);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-red-solid:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 14px 36px var(--red-glow); }
+    .btn-ghost-white {
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+      padding: 13px 28px;
+      border: 1px solid rgba(255,255,255,0.18);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.25s;
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+
+    /* hero right: featured car cards sidebar */
+    .hero-sidebar {
+      position: relative;
+      z-index: 2;
+      padding: 80px 40px 80px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-end;
+    }
+    .sidebar-card {
+      background: rgba(11,14,20,0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 16px;
+      width: 280px;
+      backdrop-filter: blur(16px);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .sidebar-card:hover { border-color: var(--border-red); box-shadow: 0 8px 32px rgba(229,25,43,0.2); transform: translateX(-4px); }
+    .sidebar-card-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 4px;
+    }
+    .sidebar-card-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .sidebar-card-img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      opacity: 0.92;
+    }
+    .sidebar-card-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .sc-stat-label {
+      font-size: 8.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--slate);
+      margin-bottom: 2px;
+    }
+    .sc-stat-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .sc-stat-unit {
+      font-size: 10px;
+      color: var(--slate);
+      margin-left: 2px;
+    }
+    .sidebar-view-btn {
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--white);
+      padding: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.25s;
+    }
+    .sidebar-view-btn:hover { background: var(--red); border-color: var(--red); }
+
+    /* ── HERO STATS BAR ── */
+    .hero-stats-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 5;
+      background: rgba(6,8,12,0.92);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: stretch;
+    }
+    .hsbar-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 28px;
+      border-right: 1px solid var(--border);
+      transition: background 0.25s;
+    }
+    .hsbar-item:last-child { border-right: none; }
+    .hsbar-item:hover { background: rgba(229,25,43,0.06); }
+    .hsbar-icon {
+      width: 38px; height: 38px;
+      border: 1px solid var(--border-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--red);
+      font-size: 16px;
+    }
+    .hsbar-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--slate);
+      margin-bottom: 2px;
+    }
+    .hsbar-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .hsbar-unit {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      color: var(--slate);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    /* hero slide arrow buttons */
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: rgba(6,8,12,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      opacity: 0;
+      transition: all 0.25s;
+      backdrop-filter: blur(8px);
+    }
+    .hero:hover .hero-arrow { opacity: 1; }
+    .hero-arrow:hover { background: var(--red); border-color: var(--red); box-shadow: 0 4px 16px var(--red-glow); }
+    .hero-arrow.prev { left: 20px; }
+    .hero-arrow.next { right: 20px; }
+
+    /* hero slide dots */
+    .hero-dots {
+      position: absolute;
+      bottom: 80px; left: 48px;
+      display: flex;
+      gap: 8px;
+      z-index: 6;
+    }
+    .hdot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .hdot.active { background: var(--red); width: 22px; border-radius: 4px; }
+
+    /* ── SECTION UTILS ── */
+    .sec-wrap { max-width: 1200px; margin: 0 auto; padding: 100px 48px; }
+    .sec-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 52px;
+    }
+    .sec-head-left {}
+    .sec-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sec-eyebrow::before {
+      content: '';
+      width: 28px; height: 2px;
+      background: var(--red);
+      border-radius: 1px;
+      display: inline-block;
+    }
+    .sec-h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .sec-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .sec-link:hover { gap: 10px; }
+
+    /* ── INVENTORY GRID ── */
+    .inventory-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+    .inv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+    .inv-card {
+      background: var(--ink2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+    }
+    .inv-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: transform 0.35s;
+      z-index: 2;
+    }
+    .inv-card:hover { transform: translateY(-8px); border-color: var(--border-red); box-shadow: 0 20px 50px rgba(229,25,43,0.15); }
+    .inv-card:hover::before { transform: scaleX(1); }
+    .inv-card-img {
+      height: 230px;
+      overflow: hidden;
+      position: relative;
+    }
+    .inv-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .inv-card:hover .inv-card-img img { transform: scale(1.08); }
+    .inv-badge {
+      position: absolute;
+      top: 14px; left: 14px;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 3px;
+      z-index: 5;
+    }
+    .inv-card-body { padding: 26px; }
+    .inv-car-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .inv-car-sub { font-size: 13px; color: var(--slate); margin-bottom: 18px; line-height: 1.5; }
+    .inv-specs-row {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+      margin-bottom: 20px;
+    }
+    .inv-spec { text-align: center; }
+    .inv-spec-label { font-size: 9.5px; color: var(--slate); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+    .inv-spec-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      margin-top: 2px;
+    }
+    .inv-price-row { display: flex; justify-content: space-between; align-items: center; }
+    .inv-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--white);
+    }
+    .inv-cta {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.25s;
+    }
+    .inv-cta:hover { filter: brightness(1.12); transform: translateY(-1px); }
+
+    /* ── SPEC TABS ── */
+    .specs-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--ink2);
+      position: relative;
+      z-index: 1;
+    }
+    .spec-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+    }
+    .spec-tab {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      color: var(--slate);
+      padding: 11px 26px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .spec-tab.active, .spec-tab:hover {
+      background: var(--red);
+      color: var(--white);
+      border-color: var(--red);
+      box-shadow: 0 4px 18px var(--red-glow);
+    }
+    .spec-panel {
+      display: none;
+      background: var(--ink3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 44px;
+      animation: fadeIn 0.4s ease;
+    }
+    .spec-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+    .spec-panel-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .spec-panel-desc { font-size: 14px; color: var(--slate); line-height: 1.7; margin-bottom: 24px; }
+    .spec-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .spec-item { border-left: 2px solid var(--red); padding-left: 14px; }
+    .spec-item-label { font-size: 10px; color: var(--slate); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .spec-item-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      margin-top: 4px;
+    }
+
+    /* ── NEWSLETTER / STAY AHEAD ── */
+    .newsletter-section {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+    }
+    .newsletter-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 52px 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nl-icon {
+      width: 54px; height: 54px;
+      border: 1px solid var(--border-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .nl-text {}
+    .nl-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+    .nl-sub { font-size: 13px; color: var(--slate); }
+    .nl-form {
+      display: flex;
+      gap: 0;
+      flex: 1;
+      min-width: 0;
+      max-width: 480px;
+      margin-left: auto;
+    }
+    .nl-input {
+      flex: 1;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      color: var(--white);
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .nl-input:focus { border-color: var(--red); }
+    .nl-input::placeholder { color: var(--slate); }
+    .nl-btn {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 14px 26px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .nl-btn:hover { filter: brightness(1.12); }
+    .nl-success {
+      display: none;
+      color: #22c55e;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--ink3);
+      border: 1px solid var(--border-red);
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+      padding: 40px;
+      position: relative;
+      animation: modalIn 0.38s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .modal-top-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+      border-radius: 10px 10px 0 0;
+    }
+    @keyframes modalIn {
+      from { transform: translateY(28px) scale(0.95); opacity: 0; }
+      to   { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute; top: 18px; right: 18px;
+      background: none; border: none;
+      color: var(--slate); font-size: 22px; cursor: pointer;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--white); }
+    .modal-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .modal-desc { font-size: 14px; color: var(--slate); line-height: 1.6; margin-bottom: 26px; }
+    .modal-form { display: flex; flex-direction: column; gap: 14px; }
+    .modal-input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 5px;
+      color: var(--white);
+      font-size: 14px;
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .modal-input:focus { border-color: var(--red); }
+    .modal-success {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .modal-success-icon { font-size: 44px; margin-bottom: 14px; }
+    .modal-success h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .modal-success p { font-size: 14px; color: var(--slate); line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .footer-logo span { color: var(--red); }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .footer-links a {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--red); }
+    .footer-copy { font-size: 12px; color: #3d4d62; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hero-slide { grid-template-columns: 1fr; }
+      .hero-content { padding: 80px 24px 200px; }
+      .hero-sidebar { display: none; }
+      .sec-wrap { padding: 64px 24px; }
+      .sec-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .inv-grid { grid-template-columns: 1fr; }
+      .spec-panel.active { grid-template-columns: 1fr; gap: 28px; }
+      .spec-list { grid-template-columns: 1fr; }
+      .newsletter-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .nl-form { width: 100%; max-width: 100%; margin-left: 0; }
+      footer { padding: 36px 24px; }
+      .hsbar-item { padding: 16px 18px; gap: 10px; }
+      .hsbar-val { font-size: 24px; }
+    }
+  </style>
+
+            <meta name="description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="robots" content="index, follow">
+            <meta property="og:title" content="Responsive Car Showroom HTML/CSS Web Template">
+            <meta property="og:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta property="og:image" content="https://codescompiler.com/images/posts/car-showroom-template.png">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="Responsive Car Showroom HTML/CSS Web Template">
+            <meta name="twitter:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="twitter:image" content="https://codescompiler.com/images/posts/car-showroom-template.png">
+          </head>
+<body>
+
+<!-- ── CODESCOMPILER DEMO HEADER ── -->
+<style>
+  #cc-demo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 48px;
+    background: #1a1b26;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: white;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+  }
+  #cc-demo-header a { text-decoration: none; color: white; }
+  .cc-logo { font-size: 14px; font-weight: 900; }
+  .cc-logo span { color: #04aa6d; }
+  .cc-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.12); margin: 0 12px; }
+  .cc-title { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cc-actions { display: flex; gap: 8px; }
+  .cc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: rgba(255,255,255,0.7);
+  }
+  .cc-btn:hover { background: rgba(255,255,255,0.15); color: white; }
+  .cc-btn svg { width: 14px; height: 14px; }
+  @media (max-width: 600px) {
+    .cc-title { display: none; }
+    .cc-btn span { display: none; }
+  }
+</style>
+<header id="cc-demo-header">
+  <div style="display: flex; align-items: center; overflow: hidden;">
+    <a href="https://codescompiler.com" class="cc-logo" target="_blank" rel="dofollow"><span>Codes</span>Compiler</a>
+    <div class="cc-sep"></div>
+    <h1 class="cc-title" title="Responsive Car Showroom HTML/CSS Web Template" style="margin: 0; font-size: 13px; font-weight: 600;">📺 Responsive Car Showroom HTML/CSS Web Template</h1>
+  </div>
+  <div class="cc-actions">
+    <a href="https://codescompiler.com/blog/car-showroom-template/" class="cc-btn" target="_blank" rel="dofollow" title="Read the full post">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+      <span>Back to Post</span>
+    </a>
+    <a href="index.html" class="cc-btn" target="_blank" download="car-showroom-template.html" title="Download source file">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      <span>Download</span>
+    </a>
+    <button onclick="document.getElementById('cc-demo-header').style.display='none'" class="cc-btn" title="Hide header for fullscreen view">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l5-5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+      <span>Fullscreen</span>
+    </button>
+  </div>
+</header>
+<!-- ================================== -->
+
+
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <div class="logo">VELOCITY<span>X</span></div>
+    <nav>
+      <a href="#showroom" class="active">Home</a>
+      <a href="#inventory">Inventory</a>
+      <a href="#specs">Specs</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="btn-book-test" onclick="openModal('Test Drive Booking')">Book a Test Drive</button>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="showroom" onmouseenter="pauseSlide()" onmouseleave="startSlide()">
+    <div class="hero-track" id="hero-track">
+
+      <!-- Slide 1: VelocityX Black -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=1800&amp;q=80');"></div>
+        <div class="hero-content">
+          <span class="hero-badge">Beyond Performance</span>
+          <h1 class="hero-title">
+            VELOCITY<span class="red-word">X</span>
+          </h1>
+          <p class="hero-desc">Engineered for speed. Built for the future. VelocityX pushes mechanical paradigms to establish absolute luxury track performance.</p>
+          <div class="hero-ctas">
+            <button class="btn-red-solid" onclick="openModal('VelocityX Configurator')">Explore Now &nbsp;→</button>
+            <button class="btn-ghost-white" onclick="openModal('Test Drive Booking')">Book Test Drive</button>
+          </div>
+        </div>
+        <!-- Sidebar cards -->
+        <div class="hero-sidebar">
+          <div class="sidebar-card" onclick="openModal('Legend GT Details')">
+            <div class="sidebar-card-tag">Featured</div>
+            <div class="sidebar-card-name">Legend GT</div>
+            <img class="sidebar-card-img" src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Legend GT">
+            <div class="sidebar-card-stats">
+              <div>
+                <div class="sc-stat-label">0-60 MPH</div>
+                <div class="sc-stat-val">2.7<span class="sc-stat-unit">s</span></div>
+              </div>
+              <div>
+                <div class="sc-stat-label">Top Speed</div>
+                <div class="sc-stat-val">335<span class="sc-stat-unit">KM/H</span></div>
+              </div>
+            </div>
+            <button class="sidebar-view-btn">View Details</button>
+          </div>
+
+          <div class="sidebar-card" onclick="openModal('Nova R8 Details')">
+            <div class="sidebar-card-tag">Pure Drive</div>
+            <div class="sidebar-card-name">Nova R8</div>
+            <img class="sidebar-card-img" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Nova R8">
+            <div class="sidebar-card-stats">
+              <div>
+                <div class="sc-stat-label">0-60 MPH</div>
+                <div class="sc-stat-val">3.1<span class="sc-stat-unit">s</span></div>
+              </div>
+              <div>
+                <div class="sc-stat-label">Top Speed</div>
+                <div class="sc-stat-val">320<span class="sc-stat-unit">KM/H</span></div>
+              </div>
+            </div>
+            <button class="sidebar-view-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Stealth Obsidian -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&amp;fit=crop&amp;w=1800&amp;q=80');"></div>
+        <div class="hero-content">
+          <span class="hero-badge">Stealth Edition</span>
+          <h1 class="hero-title">
+            OBSIDIAN<span class="red-word">NOIR</span>
+          </h1>
+          <p class="hero-desc">Matte obsidian carbon fibre redefines silent performance with zero-emission drivetrain and active aerodynamics for the dark road ahead.</p>
+          <div class="hero-ctas">
+            <button class="btn-red-solid" onclick="openModal('Obsidian Noir Configurator')">Configure Now &nbsp;→</button>
+            <button class="btn-ghost-white" onclick="openModal('Test Drive Booking')">Book Session</button>
+          </div>
+        </div>
+        <div class="hero-sidebar">
+          <div class="sidebar-card" onclick="openModal('Stealth S Details')">
+            <div class="sidebar-card-tag">Stealth</div>
+            <div class="sidebar-card-name">Shadow S</div>
+            <img class="sidebar-card-img" src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Shadow S">
+            <div class="sidebar-card-stats">
+              <div>
+                <div class="sc-stat-label">0-60 MPH</div>
+                <div class="sc-stat-val">2.4<span class="sc-stat-unit">s</span></div>
+              </div>
+              <div>
+                <div class="sc-stat-label">Range</div>
+                <div class="sc-stat-val">480<span class="sc-stat-unit">KM</span></div>
+              </div>
+            </div>
+            <button class="sidebar-view-btn">View Details</button>
+          </div>
+          <div class="sidebar-card" onclick="openModal('Phantom Details')">
+            <div class="sidebar-card-tag">Limited</div>
+            <div class="sidebar-card-name">Phantom X</div>
+            <img class="sidebar-card-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Phantom X">
+            <div class="sidebar-card-stats">
+              <div>
+                <div class="sc-stat-label">0-60 MPH</div>
+                <div class="sc-stat-val">2.1<span class="sc-stat-unit">s</span></div>
+              </div>
+              <div>
+                <div class="sc-stat-label">Top Speed</div>
+                <div class="sc-stat-val">360<span class="sc-stat-unit">KM/H</span></div>
+              </div>
+            </div>
+            <button class="sidebar-view-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Electric Quantum -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&amp;fit=crop&amp;w=1800&amp;q=80');"></div>
+        <div class="hero-content">
+          <span class="hero-badge">Electric Era</span>
+          <h1 class="hero-title">
+            QUANTUM<span class="red-word">EX</span>
+          </h1>
+          <p class="hero-desc">Zero to 100 in 2.4 seconds. Electromagnetic torque vectoring with liquid-cooled titanium battery cells redefines electric performance.</p>
+          <div class="hero-ctas">
+            <button class="btn-red-solid" onclick="openModal('Quantum EX Configurator')">Explore Now &nbsp;→</button>
+            <button class="btn-ghost-white" onclick="openModal('Test Drive Booking')">Book Session</button>
+          </div>
+        </div>
+        <div class="hero-sidebar">
+          <div class="sidebar-card" onclick="openModal('Quantum EX Details')">
+            <div class="sidebar-card-tag">Electric</div>
+            <div class="sidebar-card-name">Quantum EX</div>
+            <img class="sidebar-card-img" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Quantum EX">
+            <div class="sidebar-card-stats">
+              <div>
+                <div class="sc-stat-label">0-60 MPH</div>
+                <div class="sc-stat-val">2.4<span class="sc-stat-unit">s</span></div>
+              </div>
+              <div>
+                <div class="sc-stat-label">Range</div>
+                <div class="sc-stat-val">520<span class="sc-stat-unit">KM</span></div>
+              </div>
+            </div>
+            <button class="sidebar-view-btn">View Details</button>
+          </div>
+          <div class="sidebar-card" onclick="openModal('Nova Charge Details')">
+            <div class="sidebar-card-tag">Pure EV</div>
+            <div class="sidebar-card-name">Nova Charge</div>
+            <img class="sidebar-card-img" src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Nova Charge">
+            <div class="sidebar-card-stats">
+              <div>
+                <div class="sc-stat-label">0-60 MPH</div>
+                <div class="sc-stat-val">3.0<span class="sc-stat-unit">s</span></div>
+              </div>
+              <div>
+                <div class="sc-stat-label">Range</div>
+                <div class="sc-stat-val">600<span class="sc-stat-unit">KM</span></div>
+              </div>
+            </div>
+            <button class="sidebar-view-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Arrows -->
+    <button class="hero-arrow prev" onclick="moveSlide(-1, event)">❮</button>
+    <button class="hero-arrow next" onclick="moveSlide(1, event)">❯</button>
+
+    <!-- Dots -->
+    <div class="hero-dots">
+      <span class="hdot active" onclick="gotoSlide(0)"></span>
+      <span class="hdot" onclick="gotoSlide(1)"></span>
+      <span class="hdot" onclick="gotoSlide(2)"></span>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="hero-stats-bar">
+      <div class="hsbar-item">
+        <div class="hsbar-icon">◎</div>
+        <div>
+          <div class="hsbar-label">Top Speed</div>
+          <div><span class="hsbar-val">360</span> <span class="hsbar-unit">KM/H</span></div>
+        </div>
+      </div>
+      <div class="hsbar-item">
+        <div class="hsbar-icon">⏱</div>
+        <div>
+          <div class="hsbar-label">0-60 MPH</div>
+          <div><span class="hsbar-val">2.4</span> <span class="hsbar-unit">SEC</span></div>
+        </div>
+      </div>
+      <div class="hsbar-item">
+        <div class="hsbar-icon">⚙</div>
+        <div>
+          <div class="hsbar-label">Horsepower</div>
+          <div><span class="hsbar-val">850</span> <span class="hsbar-unit">HP</span></div>
+        </div>
+      </div>
+      <div class="hsbar-item">
+        <div class="hsbar-icon">↻</div>
+        <div>
+          <div class="hsbar-label">Torque</div>
+          <div><span class="hsbar-val">980</span> <span class="hsbar-unit">NM</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INVENTORY ═══ -->
+  <section class="inventory-section" id="inventory">
+    <div class="sec-wrap">
+      <div class="sec-head reveal">
+        <div class="sec-head-left">
+          <div class="sec-eyebrow">Our Fleet</div>
+          <h2 class="sec-h2">Current Inventory</h2>
+        </div>
+        <a class="sec-link" href="#" onclick="openModal('Full Inventory')">View All Models →</a>
+      </div>
+
+      <div class="inv-grid">
+        <div class="inv-card reveal">
+          <div class="inv-card-img">
+            <span class="inv-badge">New Arrival</span>
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="VelocityX Apex">
+          </div>
+          <div class="inv-card-body">
+            <div class="inv-car-name">VelocityX Apex</div>
+            <div class="inv-car-sub">Hyper GT · Carbon Monocoque · Twin-Turbo V8</div>
+            <div class="inv-specs-row">
+              <div class="inv-spec">
+                <div class="inv-spec-label">0–60</div>
+                <div class="inv-spec-val">1.9s</div>
+              </div>
+              <div class="inv-spec">
+                <div class="inv-spec-label">Power</div>
+                <div class="inv-spec-val">1200HP</div>
+              </div>
+              <div class="inv-spec">
+                <div class="inv-spec-label">Top Speed</div>
+                <div class="inv-spec-val">360km/h</div>
+              </div>
+            </div>
+            <div class="inv-price-row">
+              <span class="inv-price">$1,850,000</span>
+              <button class="inv-cta" onclick="openModal('Test Drive Booking')">Book Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="inv-card reveal">
+          <div class="inv-card-img">
+            <span class="inv-badge">Featured</span>
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Obsidian Noir">
+          </div>
+          <div class="inv-card-body">
+            <div class="inv-car-name">Obsidian Noir</div>
+            <div class="inv-car-sub">Stealth Edition · DLC-Coated Steel · AWD Electric</div>
+            <div class="inv-specs-row">
+              <div class="inv-spec">
+                <div class="inv-spec-label">0–60</div>
+                <div class="inv-spec-val">2.1s</div>
+              </div>
+              <div class="inv-spec">
+                <div class="inv-spec-label">Range</div>
+                <div class="inv-spec-val">480KM</div>
+              </div>
+              <div class="inv-spec">
+                <div class="inv-spec-label">Top Speed</div>
+                <div class="inv-spec-val">340km/h</div>
+              </div>
+            </div>
+            <div class="inv-price-row">
+              <span class="inv-price">$2,200,000</span>
+              <button class="inv-cta" onclick="openModal('Test Drive Booking')">Book Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="inv-card reveal">
+          <div class="inv-card-img">
+            <span class="inv-badge" style="background:#1d4ed8;">Electric</span>
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Quantum EX">
+          </div>
+          <div class="inv-card-body">
+            <div class="inv-car-name">Quantum EX</div>
+            <div class="inv-car-sub">Pure Electric · Torque Vectoring · 800V Architecture</div>
+            <div class="inv-specs-row">
+              <div class="inv-spec">
+                <div class="inv-spec-label">0–60</div>
+                <div class="inv-spec-val">2.4s</div>
+              </div>
+              <div class="inv-spec">
+                <div class="inv-spec-label">Range</div>
+                <div class="inv-spec-val">520KM</div>
+              </div>
+              <div class="inv-spec">
+                <div class="inv-spec-label">Top Speed</div>
+                <div class="inv-spec-val">320km/h</div>
+              </div>
+            </div>
+            <div class="inv-price-row">
+              <span class="inv-price">$1,450,000</span>
+              <button class="inv-cta" onclick="openModal('Test Drive Booking')">Book Drive</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SPEC TABS ═══ -->
+  <section class="specs-section" id="specs">
+    <div class="sec-wrap">
+      <div style="text-align:center;margin-bottom:44px;" class="reveal">
+        <div class="sec-eyebrow" style="justify-content:center;">Engineering Excellence</div>
+        <h2 class="sec-h2">Technical Specifications</h2>
+      </div>
+
+      <div class="spec-tabs reveal">
+        <button class="spec-tab active" onclick="switchSpec('performance', this)">Performance</button>
+        <button class="spec-tab" onclick="switchSpec('aero', this)">Aerodynamics</button>
+        <button class="spec-tab" onclick="switchSpec('safety', this)">Core Safety</button>
+      </div>
+
+      <div id="panel-performance" class="spec-panel active reveal">
+        <div>
+          <div class="spec-panel-title">Power Output</div>
+          <p class="spec-panel-desc">Unmatched acceleration engineered via synchronous quad-motor drivetrains and lithium cell energy capacitors delivering extreme torque on demand.</p>
+        </div>
+        <ul class="spec-list">
+          <li class="spec-item"><div class="spec-item-label">Power</div><div class="spec-item-val">1,200 HP</div></li>
+          <li class="spec-item"><div class="spec-item-label">0-60 MPH</div><div class="spec-item-val">1.95 Sec</div></li>
+          <li class="spec-item"><div class="spec-item-label">Top Velocity</div><div class="spec-item-val">258 MPH</div></li>
+          <li class="spec-item"><div class="spec-item-label">Torque Vectoring</div><div class="spec-item-val">Active AWD</div></li>
+        </ul>
+      </div>
+
+      <div id="panel-aero" class="spec-panel reveal">
+        <div>
+          <div class="spec-panel-title">Downforce Curation</div>
+          <p class="spec-panel-desc">Active wind management channels force across the high-modulus carbon rear wing, keeping the chassis anchored through high-speed corners.</p>
+        </div>
+        <ul class="spec-list">
+          <li class="spec-item"><div class="spec-item-label">Drag Coeff.</div><div class="spec-item-val">0.24 Cd</div></li>
+          <li class="spec-item"><div class="spec-item-label">Active Wing</div><div class="spec-item-val">Carbon DRS</div></li>
+          <li class="spec-item"><div class="spec-item-label">Downforce</div><div class="spec-item-val">840 kg</div></li>
+          <li class="spec-item"><div class="spec-item-label">Diffuser</div><div class="spec-item-val">Venturi Rear</div></li>
+        </ul>
+      </div>
+
+      <div id="panel-safety" class="spec-panel reveal">
+        <div>
+          <div class="spec-panel-title">Core Safety</div>
+          <p class="spec-panel-desc">Six-axis inertial stability, carbon monocoque chassis, and AI-assisted collision avoidance ensure maximum driver protection at all speeds.</p>
+        </div>
+        <ul class="spec-list">
+          <li class="spec-item"><div class="spec-item-label">Braking</div><div class="spec-item-val">Ceramic 6-Pot</div></li>
+          <li class="spec-item"><div class="spec-item-label">Stability</div><div class="spec-item-val">6-Axis IMU</div></li>
+          <li class="spec-item"><div class="spec-item-label">Chassis</div><div class="spec-item-val">Carbon Cell</div></li>
+          <li class="spec-item"><div class="spec-item-label">Driver Assist</div><div class="spec-item-val">AI Vision</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEWSLETTER / STAY AHEAD ═══ -->
+  <section class="newsletter-section">
+    <div class="newsletter-inner">
+      <div class="nl-icon">✉</div>
+      <div class="nl-text">
+        <div class="nl-label">Stay Ahead</div>
+        <div class="nl-sub">Subscribe to get the latest models, updates and exclusive offers.</div>
+      </div>
+      <form class="nl-form" onsubmit="subscribeNewsletter(event)">
+        <input class="nl-input" type="email" id="nl-email" placeholder="Your email address" required="">
+        <button class="nl-btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="nl-success" id="nl-success" style="text-align:center;padding:8px 48px;">
+      ✓ &nbsp;You're on the list! Exclusive updates coming your way.
+    </div>
+  </section>
+
+  <!-- ═══ MODAL ═══ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-top-bar"></div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div id="modal-form-wrap">
+        <div class="modal-title" id="modal-title">Book a Test Drive</div>
+        <p class="modal-desc" id="modal-desc">Fill in your details and our team will contact you within 24 hours to schedule your exclusive test drive session.</p>
+        <form class="modal-form" onsubmit="submitModal(event)">
+          <input class="modal-input" type="text" placeholder="Full Name" required="">
+          <input class="modal-input" type="email" placeholder="Email Address" required="">
+          <input class="modal-input" type="tel" placeholder="Phone Number">
+          <select class="modal-input">
+            <option value="">Select Vehicle of Interest</option>
+            <option>VelocityX Apex</option>
+            <option>Obsidian Noir</option>
+            <option>Quantum EX</option>
+            <option>Legend GT</option>
+            <option>Nova R8</option>
+          </select>
+          <button type="submit" class="btn-red-solid" style="width:100%;padding:14px;font-size:14px;justify-content:center;">Confirm Booking →</button>
+        </form>
+      </div>
+      <div class="modal-success" id="modal-success">
+        <div class="modal-success-icon">✅</div>
+        <h3>Booking Confirmed!</h3>
+        <p>Our specialist will reach out within 24 hours to finalise your test drive session. Get ready to feel the power.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-logo">VELOCITY<span>X</span></div>
+    <div class="footer-links">
+      <a href="#showroom">Showroom</a>
+      <a href="#inventory">Inventory</a>
+      <a href="#specs">Specs</a>
+      <a href="#" onclick="openModal('Test Drive Booking')">Test Drive</a>
+    </div>
+    <div class="footer-copy">© 2026 VelocityX Motors · Designed by CodesCompiler.com</div>
+  </footer>
+
+  <script>
+    /* ── Hero Slideshow ── */
+    let currentSlide = 0;
+    let slideTimer = null;
+    const SLIDE_COUNT = 3;
+
+    function gotoSlide(index) {
+      currentSlide = ((index % SLIDE_COUNT) + SLIDE_COUNT) % SLIDE_COUNT;
+      document.getElementById('hero-track').style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.querySelectorAll('.hdot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+    }
+    function moveSlide(dir, e) {
+      if (e) e.stopPropagation();
+      gotoSlide(currentSlide + dir);
+    }
+    function startSlide() {
+      if (slideTimer) clearInterval(slideTimer);
+      slideTimer = setInterval(() => gotoSlide(currentSlide + 1), 6000);
+    }
+    function pauseSlide() {
+      if (slideTimer) { clearInterval(slideTimer); slideTimer = null; }
+    }
+    document.addEventListener('DOMContentLoaded', startSlide);
+
+    /* ── Spec Tabs ── */
+    function switchSpec(id, btn) {
+      document.querySelectorAll('.spec-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.spec-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + id).classList.add('active');
+    }
+
+    /* ── Newsletter ── */
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      document.querySelector('.nl-form').style.display = 'none';
+      document.getElementById('nl-success').style.display = 'block';
+    }
+
+    /* ── Modal ── */
+    function openModal(title) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-form-wrap').style.display = 'block';
+      document.getElementById('modal-success').style.display = 'none';
+      document.getElementById('modal-overlay').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('active');
+    }
+    function submitModal(e) {
+      e.preventDefault();
+      document.getElementById('modal-form-wrap').style.display = 'none';
+      document.getElementById('modal-success').style.display = 'block';
+    }
+    document.getElementById('modal-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    /* ── Scroll reveal ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+
+
+</body></html>
